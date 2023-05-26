@@ -1,0 +1,17 @@
+<div class="banner d-inline-flex justify-content-between">
+  <h2>Movie Lists</h2>
+  <%= link_to lists_path, class:"text-decoration-none" do %>
+    <button class="btn btn-outline-primary m-3">Back</button>
+  <% end %>
+</div>
+
+<div class="container">
+  <h2 class="my-3"><strong>New Bookmark</strong></h2>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit class:"btn btn-outline-primary" %>
+  <% end %>
+
+</div>

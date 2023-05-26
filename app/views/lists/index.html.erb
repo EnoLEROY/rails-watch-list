@@ -1,0 +1,26 @@
+<div class="banner d-inline-flex justify-content-between">
+  <h2>MovieLists</h2>
+  <%= link_to new_list_path, class:"text-decoration-none" do %>
+    <button class="btn btn-outline-primary m-3">New Movie List</button>
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-4">
+      <%= link_to list_path(list), class:'text-decoration-none card p-3',  style:"height: 200px;" do %>
+        <p><strong><%= list.name %></strong></p>
+        <ul>
+          <% list.movies.each do |movie| %>
+            <li><%= movie.title %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= link_to list_path(list), class:'text-decoration-none d-flex justify-content-end p-3 w-100', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
