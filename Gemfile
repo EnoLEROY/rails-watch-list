@@ -74,3 +74,5 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form" #rails generate simple_form:install --bootstrap
 
 gem "pg"
+
+gem "dotenv-rails"
